@@ -1,0 +1,425 @@
+/*	................................................................
+		author: 		Aleem Latif
+ 		description: 	CSS rules for Coding Test 		
+.................................................................. */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 25%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #eee;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3.25em;
+  line-height: 1.5em;
+  text-align: center;
+  min-height: 260px;
+}
+
+/*********************
+ Generic Rules
+ **/
+
+a {
+  color: #3A6899;
+  text-decoration: none;
+  &:visited, &:focus, &:active {
+    color: #3A6899;
+    text-decoration: none;
+  }
+  &:hover {
+    color: #3A6899;
+    text-decoration: underline;
+  }
+  img {
+    border: 0;
+  }
+}
+
+p {
+  line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.no-borders {
+  border: none!important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/**
+* clearfix 
+*/
+
+.clearfix {
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  display: inline-block;
+}
+
+/* hides from ie-mac \*/
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+/******************************************************
+	horizontal and vertical aligned content block
+**/
+
+#vertical-container {
+  float: left;
+  height: 50%;
+  margin-top: -139px;
+  /* half vertical height*/
+  width: 100%;
+}
+
+#horizontal-container {
+  border: 0 solid #dddddd;
+  clear: both;
+  height: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  /* allow content to scroll inside element */
+  text-align: left;
+  width: 370px;
+}
+
+.module {
+  width: 350px;
+  height: 100%;
+  vertical-align: middle;
+  text-align: left;
+  margin: 0 auto;
+  position: relative;
+  border: 0 solid green;
+  display: block;
+  top: 20%;
+  h1 {
+    background-color: #808080;
+    color: #dddddd;
+    font-size: 16px;
+    font-weight: bold;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 10px;
+    text-align: left;
+  }
+}
+
+.ui-widget-header, .ui-draggable .ui-dialog-titlebar {
+  background-color: #808080;
+  color: #dddddd;
+  font-size: 16px;
+  font-weight: bold;
+  height: 35px;
+  line-height: 35px;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+  border: 0 none;
+}
+
+.ui-dialog {
+  .ui-dialog-title {
+    background-color: #808080;
+    color: #dddddd;
+    font-size: 16px;
+    font-weight: bold;
+    height: 35px;
+    line-height: 35px;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+    border: 0 none;
+    padding-left: 10px;
+  }
+  .ui-dialog-content {
+    background: none repeat scroll 0 0 #fff;
+  }
+}
+
+.module h1 span {
+  background: url("../images/sprites.gif") no-repeat scroll 0 -51px gray;
+  display: block;
+  float: right;
+  height: 22px;
+  margin: 5px;
+  position: relative;
+  width: 22px;
+  right: 1px;
+  top: 1px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  background: url("../images/sprites.gif") no-repeat scroll 0 -51px gray;
+  border: 0 none;
+  display: block;
+  height: 22px;
+  margin: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 22px;
+}
+
+.module-body .row .ui-slider .ui-slider-handle {
+  background: url("../images/sprites.gif") no-repeat scroll 0 -26px transparent !important;
+  border: 0 none;
+  cursor: pointer;
+  margin: 5px 0 0;
+  outline: medium none;
+  padding: 0;
+  top: 0.5em;
+  width: 15px;
+}
+
+.module .module-body {
+  color: #000000;
+  font-size: 1em;
+  font-weight: normal;
+  height: 100%;
+  margin-bottom: 10px;
+  background-color: #FFFFFF;
+  border-radius: 3px 3px 3px 3px;
+  .row {
+    margin: 0 20px;
+    padding: 10px 20px 20px;
+    text-align: center;
+    .percentage-left {
+      display: block;
+      position: absolute;
+      top: 23px;
+    }
+    .percentage-right {
+      display: block;
+      position: absolute;
+      top: 23px;
+      right: 5px;
+    }
+    .percentage-left {
+      left: 14px;
+    }
+  }
+}
+
+.module-body .row {
+  .meter-label, .meter-container, #target-block {
+    display: block;
+  }
+}
+
+.module .module-body .row #target-block {
+  background: url("../images/sprites.gif") no-repeat scroll 0 -71px transparent;
+  width: 51px;
+  height: 42px;
+  text-align: center;
+  color: #ffffff;
+  span {
+    display: block;
+    font-size: 0.9em;
+    line-height: 1.4em;
+    vertical-align: middle;
+  }
+  h3 {
+    font-size: 1.4em;
+    line-height: 1.4em;
+    vertical-align: middle;
+  }
+}
+
+.module-body {
+  .row {
+    .meter-label {
+      width: 80px;
+      padding-top: 12px;
+    }
+    .meter-container {
+      padding: 15px 0 0 0;
+    }
+    #progress-meter {
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #cecece;
+      border-radius: 0;
+      cursor: pointer;
+      height: 14px;
+      position: relative;
+    }
+    #progressbar {
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #cecece;
+      border-radius: 0;
+      cursor: pointer;
+      height: 14px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    #curr-progress {
+      font-size: 0.8em;
+      font-weight: bold;
+      margin: 2px;
+      position: absolute;
+      top: 22px;
+      left: 80%;
+    }
+    .ui-slider {
+      .ui-slider-range {
+        background: url("../images/bar_bg.gif") repeat-x scroll 0 0 transparent;
+        border-radius: 0;
+        &.success {
+          background: url("../images/success_bar_bg.gif") repeat-x scroll 0 0 transparent !important;
+          border-radius: 0;
+        }
+      }
+      .ui-slider-handle {
+        background: url("../images/sprites.gif") no-repeat scroll 0 -26px transparent !important;
+        top: 0.5em;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .message {
+    text-align: center;
+    padding: 0 20px;
+    .qualified {
+      line-height: 25px;
+      vertical-align: middle;
+    }
+    .unqualified {
+      line-height: 25px;
+      vertical-align: middle;
+      .progress-diff {
+        font-weight: bold;
+        margin: 0 2px;
+      }
+    }
+    .qualified .icon {
+      background: url("../images/sprites.gif") no-repeat scroll 0 0 transparent;
+      display: inline-block;
+      height: 26px;
+      width: 23px;
+      margin-right: 2px;
+    }
+    .unqualified .icon {
+      background: url("../images/sprites.gif") no-repeat scroll 0 -44px transparent;
+      display: inline-block;
+      height: 25px;
+      width: 26px;
+    }
+  }
+}
+
+a#reset-button {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF69831', endColorstr='#FFF07130');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f69831), color-stop(100%, #f07130));
+  background: -webkit-linear-gradient(top, #f69831, #f07130);
+  background: -moz-linear-gradient(top, #f69831, #f07130);
+  background: -o-linear-gradient(top, #f69831, #f07130);
+  background: linear-gradient(top, #f69831, #f07130);
+  background-color: #f07130;
+  text-shadow: 0 1px 0 rgba(222, 24, 139, 0.7);
+  box-shadow: 0 2px 0 #c84c0e;
+  margin: 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  outline: 0;
+}
+
+/******************
+ page footer 
+**/
+
+#footer-wrapper {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid #999999;
+  text-align: center;
+}
+
+.page-footer {
+  margin: auto;
+  width: 80%;
+  color: #333333;
+  font-weight: normal;
+  font-size: 0.8em;
+}
+
+/** 
+	Responsoive Logic 
+*/
+
+/*************************************
+	Size > 1024px Desktop/Widescreens
+*/
+@media screen and (min-width: 1025px) {}
+
+/***************************************
+	Size ~ 601px - 1024px Tablet/Desktop
+*/
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+	.ui-dialog {
+		max-width: 90%!important;
+  }
+}
+
+/*************************************
+	Size ~ 0 - 600px [mobile devices]
+*/
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+  .ui-dialog {
+    min-width: 250px!important;
+	max-width: 90%!important;
+  }
+}

@@ -97,15 +97,10 @@ h1, h2, h3, h4, h5 {
 	width: 370px;
 }
 .module {
-	width: 350px;
-	height: 100%;
 	vertical-align:middle;
-	text-align:left;
 	margin: 0 auto;
 	position:relative;
-	border: 0 solid green;
 	display:block;
-	top: 20%;
 }
 .module h1 {
 	background-color: #808080;
@@ -173,7 +168,6 @@ h1, h2, h3, h4, h5 {
 	font-size: 1em;
 	font-weight: normal;
 	height: 100%;
-	margin-bottom: 10px;
 	background-color: #FFFFFF;
 	border-radius: 3px 3px 3px 3px;
 }
@@ -218,10 +212,17 @@ h1, h2, h3, h4, h5 {
 	width: 80px;
 	padding-top: 12px;
 }
-.module-body .row .meter-container {
+#progress-bars {
+	vertical-align:middle;
+	text-align:center;
+	margin: 0 auto;
+	position:relative;
+	display:block;
+}
+.module-body .row .bars-container {
 	padding: 15px 0 0 0;
 }
-.module-body .row #progress-meter {
+.module-body .row .bars-container .progress-meter {
 	background-color: #fff;
 	background-image: none;
 	border: 1px solid #cecece;
@@ -230,23 +231,41 @@ h1, h2, h3, h4, h5 {
 	height: 14px;
 	position: relative;
 }
-.module-body .row #progressbar {
+.module-body .row .bars-container .progress-bar {
 	background-color: #fff;
 	background-image: none;
 	border: 1px solid #cecece;
 	border-radius: 0;
-	cursor: pointer;
-	height: 14px;
+	height: 28px;
 	position: relative;
 	margin-bottom: 10px;
 }
-.module-body .row #curr-progress {
-	font-size: 0.8em;
-	font-weight: bold;
-	margin: 2px;
+.module-body .row .bars-container .progress-label {
 	position: absolute;
-	top: 22px;
-	left: 80%;
+	left: 50%;
+	top: 4px;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #fff;
+}
+.module-body .row .bars-container .control-panel {
+	margin: 0;
+	padding: 0;
+	display:block;
+	position: relative;
+}
+.module-body .row .bars-container .control-panel li {
+	margin: 0 4px 0 0;
+	padding: 0;
+	display:block;
+	position: relative;
+	float: left;
+}
+.module-body .row .bars-container .control-panel li select {
+	cursor:pointer;
+	height:25px;
+}
+.module-body .row .bars-container .control-panel button {
+	cursor:pointer;
 }
 .module-body .row .ui-slider .ui-slider-range {
 	background: url("../images/bar_bg.gif") repeat-x scroll 0 0 transparent;
@@ -265,52 +284,6 @@ h1, h2, h3, h4, h5 {
 }
 .module-body .row .ui-slider .ui-slider-handle:focus {
 	outline: none;
-}
-.module-body .message {
-	text-align: center;
-	padding: 0 20px;
-}
-.module-body .message .qualified, .module-body .message .unqualified {
-	line-height: 25px;
-	vertical-align:middle;
-}
-.module-body .message .unqualified .progress-diff {
-	font-weight:bold;
-	margin: 0 2px;
-}
-.module-body .message .qualified .icon {
-	background: url("../images/sprites.gif") no-repeat scroll 0 0 transparent;
-	display: inline-block;
-	height: 26px;
-	width: 23px;
-	margin-right: 2px;
-}
-.module-body .message .unqualified .icon {
-	background: url("../images/sprites.gif") no-repeat scroll 0 -44px transparent;
-	display: inline-block;
-	height: 25px;
-	width: 26px;
-}
-a#reset-button {
-	color: #fff;
-	font-size: 14px;
-	font-weight:bold;
-	text-align: center;
- filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF69831', endColorstr='#FFF07130');
-	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f69831), color-stop(100%, #f07130));
-	background: -webkit-linear-gradient(top, #f69831, #f07130);
-	background: -moz-linear-gradient(top, #f69831, #f07130);
-	background: -o-linear-gradient(top, #f69831, #f07130);
-	background: linear-gradient(top, #f69831, #f07130);
-	background-color: #f07130;
-	text-shadow: 0 1px 0 rgba(222, 24, 139, 0.7);
-	box-shadow: 0 2px 0 #c84c0e;
-	margin: 0;
-	padding: 5px 10px;
-	border-radius: 5px;
-	cursor: pointer;
-	border: none;
-	outline: 0;
 }
 /******************
  page footer 
@@ -339,21 +312,19 @@ a#reset-button {
 	Size > 1024px Desktop/Widescreens
 */
 @media screen and (min-width: 1025px) {
-	
 }
 
 /***************************************
 	Size ~ 601px - 1024px Tablet/Desktop
 */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
-	
 }
 
 /*************************************
 	Size ~ 0 - 600px [mobile devices]
 */
 @med.ia only screen and (min-width:0px) and (max-width: 600px) {
-	.ui-dialog	{
-		min-width: 300px!important;
-	}
+ .ui-dialog {
+ min-width: 300px!important;
+}
 }
