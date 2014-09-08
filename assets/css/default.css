@@ -323,7 +323,7 @@ h1, h2, h3, h4, h5 {
 /*************************************
 	Size ~ 0 - 600px [mobile devices]
 */
-@med.ia only screen and (min-width:0px) and (max-width: 600px) {
+@media only screen and (min-width:0px) and (max-width: 600px) {
  .ui-dialog {
  min-width: 300px!important;
 }

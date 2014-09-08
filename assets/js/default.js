@@ -62,37 +62,61 @@ var ALProgressBars = {
 			});			
 	}, 
 	/**
-	 	update progress bars
+	 	update selected progress bar with clicked button value
 	*/
 	updateProgressBar : function(selectedBarId, changeVal)	{
 			var operator = changeVal.slice(0,1);
 			var changeVal = parseInt(changeVal.slice(1));
 			var progressBar = $( "#"+selectedBarId );
 			var progressLabel = progressBar.find( ".progress-label" );
-		 	var val = progressBar.progressbar( "value" ) || 0;
+		 	var currVal = progressBar.progressbar( "value" ) || 0;
+			var updatedVal = '';
 			
-			switch (operator)	{
-				case "-":	{
-					 progressBar.progressbar( "value", val - changeVal );
-					 break;
-				}
-				case "+":	{
-					 progressBar.progressbar( "value", val + changeVal );
-					 break;
-				}
-			}
-			
-			  
+			// now update the selected progressBar value
+			 ALProgressBars.updateVal(progressBar, operator, currVal, changeVal);
+			 updatedVal = progressBar.progressbar( "value" );		
+			 	  
 			progressBar.progressbar({
 				  				  
 				  change: function() {
+					    
+					  
 						progressLabel.text( progressBar.progressbar( "value" ) + "%" );
+						
+						if (updatedVal < 100)	{					  	
+							progressBar.find('.ui-progressbar-value').removeClass('success');						 
+					  	} else {
+					  		progressBar.find('.ui-progressbar-value').addClass('success');
+					  	}
+						
 				  },
 				  
 				  complete: function() {
+					 
+					  if (updatedVal >= 100)	{					  	
 						progressBar.find('.ui-progressbar-value').addClass('success');
+						 
+					  } else {
+					  	progressBar.find('.ui-progressbar-value').removeClass('success');
+					  }
 				  }
 		   });
+	},
+	/**
+	 	update selected progress bar "value" with clicked button value
+	*/
+	updateVal : function(progressBar, operator, currVal, changeVal)	{
+		
+		switch (operator)	{
+			case "-":	{
+				 progressBar.progressbar( "value", currVal - changeVal );
+				 break;
+				 }
+			case "+":	{
+				 progressBar.progressbar( "value", currVal + changeVal );
+				 break;
+				}
+		}		
 	}
 }
 // end : ALProgressBar object
@@ -104,13 +128,14 @@ jQuery(function($) {
 	function initProgressBar()	{
 		
 		$( "#lightbox" ).dialog({
+		  title: 'Progress Bars Demo',
 		  modal: true,
 		  minWidth: 400,
 		  minHeight: 210,		
 		  create: function( event, ui ) {
 			// Set maxWidth
 			$(this).css("maxWidth", "600px");
-		  }  
+		  }		   
 		});
 				
 		ALProgressBars.init();	
@@ -121,7 +146,7 @@ jQuery(function($) {
 	// Reset Porgress Bar
 	$('.control-panel button').on('click', function(e)	{
 		 var selectedBarId = $('#bars-selector').val();	
-		 var changeVal = $(this).data('change-val'); 
+		 var changeVal = $(this).val(); //data('change-val'); 
 		 ALProgressBars.updateProgressBar(selectedBarId, changeVal);	
 	});
 });
