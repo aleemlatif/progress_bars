@@ -1,0 +1,57 @@
+#pre-integration p {margin:.2em 0 .6em} 
+
+#header {height:105px;}
+
+ul.custdet {padding:0; width:300px;}
+	ul.custdet li {width: 254px;}
+	
+	fieldset.border ul.radio-list.inline li {width:auto;}
+
+	
+.inner-wrapper div.step-outer .cnr-bot {display:none;}
+.inner-wrapper div.step-outer {border-bottom:1px solid #b6bdbf;}
+
+#tooltip-hover {position:relative;}
+
+#pre-integration a.btn-edit {background-position:0 -610px; margin-top:3px;}
+
+.curvy-box-yl {position:relative; width:auto;}
+
+#error {}
+	#error p {line-height:1.1; margin-bottom: .4em;}
+
+/* switch styles */
+.focus-even #strategy-container {}
+	.focus-even #strategy-container .col-left {text-align:left; width:445px;}
+	.focus-even #strategy-container .col-right {text-align:left; width:460px;}
+
+#frm-switch {}
+	.switch-col ul {margin:0 0 20px 10px;}
+
+.strategy-map, .strategy-table {display:inline;}
+.confirmation div.col-right .strategy-map {margin-left:15px;}
+
+/* bulk contribution styles */
+fieldset.border .sml-of-label, fieldset.border .col3-align {display:inline;}
+.bulk-column2b {margin-left: 0;}
+.of-box-full {float:right;}
+
+
+/* forms */
+fieldset.ctrl, {padding-top:20px !important;}
+
+#facebox .sml input.mid {margin-right:0 !important;} 
+
+
+/* buttons */
+#pre-integration a.button {background-image:url(../images/sprite_buttons.gif);}
+	#pre-integration a.button .btn-inner {background-image: url(../images/sprite_buttons.gif); float:left;}
+
+
+/* account overview */
+#account-overview .step-content-tabs li {width: 108px; position: relative; bottom: -1px;}
+	#account-overview .step-content-tabs li span {display: block;}
+
+#account-overview .strategy-item .curvy-box-gry table td {padding:2px 0 1px;}
+
+#account-overview #cont-overall a.btn-grey .btn-inner {width:180px;}

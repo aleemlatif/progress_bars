@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<title>::: Progress Bars Demo :: Aleem Latif :::</title>
+<!-- start : meta tags -->
+<!-- Ensure compatibility mode is disabled in IE browsers. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="Aleem Latif" />
+<meta name="description" content="This is the Progress Bars Demo page" />
+<meta name="keywords" content="progress, bars, coding, test" />
+<meta name="robots" content="index,follow" />
+<!-- // end : meta tags -->
+<link rel="icon" type="image/vnd.microsoft.icon" href="assets/images/favicon.ico">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="assets/images/favicon.ico">
+<!-- start : CSS -->
+<link href="assets/css/reset_min.css" type="text/css" rel="stylesheet" media="all" />
+<link href="assets/css/jquery-ui.min.css" type="text/css" rel="stylesheet" media="all" />
+<link href="assets/css/default.css" type="text/css" rel="stylesheet" media="all" />
+<!-- // end : CSS -->
+
+<!-- Must execute before the body for the shiv to work, and to prevent FOUC. -->
+<script src="assets/js/modernizr.min.js" type="text/javascript"></script>
+
+<!-- IE fix for HTML5 tags -->
+<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+<!--  start : #vertical-container -->
+<div id="vertical-container">&nbsp;</div>
+<!--  // end : #vertical-container --> 
+<!--  start : #horizontal-container -->
+<div id="horizontal-container"> 
+  
+  <!--  start : #lightbox -->
+  <div id="lightbox" title="Progress">
+    <div class="module" id="progress">
+      <div class="module-body">
+        <div class="row clearfix">
+          <div class="meter-container"> 
+            
+            <!--  start : #progress-bar-1 -->
+            <div id="progress-bar-1"> <span class="progress-meter">
+              <div class="unqualified"> <span class="progress-diff">0%</span> </div>
+              </span> </div>
+            <!--  // end : #progress-bar-1 --> 
+            <!--  start : #progress-bar-2 -->
+            <div id="progress-bar-2"><span class="progress-meter"></span></div>
+            <!--  // end : #progress-bar-2 --> 
+            <!--  start : #progress-bar-3 -->
+            <div id="progress-bar-3"><span class="progress-meter"></span></div>
+            <!--  // end : #progress-bar-3 --> 
+            
+            <!-- start : bars selection -->
+            <ul class="control-panel">
+              <li>
+                <select name="barsSelector" id="bars-selector">
+                  <option value="progress-bar-1">#progress1</option>
+                  <option value="progress-bar-2">#progress2</option>
+                  <option value="progress-bar-3">#progress3</option>
+                </select>
+              </li>
+              <li>
+                <button data-val="-25">-25</button>
+              </li>
+              <li>
+                <button data-val="-10">-10</button>
+              </li>
+              <li>
+                <button data-val="+10">+10</button>
+              </li>
+              <li>
+                <button data-val="+25">+25</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  // end : #lightbox --> 
+</div>
+<!--  // end : #horizontal-container --> 
+
+<!-- start : footer -->
+<footer>
+  <div id="footer-wrapper">
+    <div class="page-footer"> Copyright &copy; 2014 Aleem Latif. All Rights Reserved. </div>
+  </div>
+</footer>
+<!-- // end : footer --> 
+<!-- start : javascript --> 
+<script src="assets/js/jquery.min.js" type="text/javascript"></script> 
+<script src="assets/js/jquery-ui.min.js" type="text/javascript"></script> 
+<script src="assets/js/default.js" type="text/javascript"></script> 
+<!-- // end : javascript -->
+</body>
+</html>
