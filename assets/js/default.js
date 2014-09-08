@@ -1,10 +1,11 @@
 /*	........................................................................................................
 		author: 		Aleem Latif
- 		description: 	Progress Bars jQuery Plugins  	
+ 		description: 	Progress Bars  	
 ......................................................................................................... */
 
-// start : ALProgressBar object
+// start : ALProgressBars object
 var ALProgressBars = {
+	
 	//	Set the default values
     options	 : { 	
 		startVal: 0,
@@ -38,23 +39,16 @@ var ALProgressBars = {
 				  max: o.finishVal,
 				  
 				  create : function( event, ui )	{
-					  
-					var i=0;
-					
+										
 					var val = obj.progressbar( "option", "value" );
 					
-					$('.ui-slider-range').removeClass('success');
-									
+					obj.find('.ui-progressbar-value').removeClass('success');									
 					obj.progressbar("value", obj.data('init-val'));			
 							
 				  },
 				  
 				  complete : function( event, ui )	{
-					  
-					$('.unqualified').addClass('hidden');
-					$('.qualified').removeClass('hidden');
-					 $('.ui-slider-range').addClass('success');
-				  
+					 obj.find('.ui-progressbar-value').addClass('success');				  
 				  },
 				  
 				  change : function( event, ui )	{
@@ -65,28 +59,39 @@ var ALProgressBars = {
 					 
 				  }
 				});
-			});	
-			
-			
+			});			
 	}, 
 	/**
 	 	update progress bars
 	*/
 	updateProgressBar : function(selectedBarId, changeVal)	{
-		
-			var progressbar = $( "#"+selectedBarId );
-			var progressLabel = $( progressbar + " > .progress-label" );
-		 	  
-			progressbar.progressbar({
-			  value: progressbar.progressbar( "value" ) + changeVal,
+			var operator = changeVal.slice(0,1);
+			var changeVal = parseInt(changeVal.slice(1));
+			var progressBar = $( "#"+selectedBarId );
+			var progressLabel = progressBar.find( ".progress-label" );
+		 	var val = progressBar.progressbar( "value" ) || 0;
+			
+			switch (operator)	{
+				case "-":	{
+					 progressBar.progressbar( "value", val - changeVal );
+					 break;
+				}
+				case "+":	{
+					 progressBar.progressbar( "value", val + changeVal );
+					 break;
+				}
+			}
+			
 			  
-			  change: function() {
-				progressLabel.text( progressbar.progressbar( "value" ) + "%" );
-			  },
-			  
-			  complete: function() {
-				$('.ui-slider-range').addClass('success');
-			  }
+			progressBar.progressbar({
+				  				  
+				  change: function() {
+						progressLabel.text( progressBar.progressbar( "value" ) + "%" );
+				  },
+				  
+				  complete: function() {
+						progressBar.find('.ui-progressbar-value').addClass('success');
+				  }
 		   });
 	}
 }
@@ -104,7 +109,7 @@ jQuery(function($) {
 		  minHeight: 210,		
 		  create: function( event, ui ) {
 			// Set maxWidth
-			$(this).css("maxWidth", "500px");
+			$(this).css("maxWidth", "600px");
 		  }  
 		});
 				
@@ -115,7 +120,8 @@ jQuery(function($) {
 	 	
 	// Reset Porgress Bar
 	$('.control-panel button').on('click', function(e)	{
-		 var selectedBarId = $('#bars-selector').val;		 
-		 ALProgressBars.updateProgressBar({selectedBarId: selectedBarId, changeVal : $(this).data('change-val')});	
+		 var selectedBarId = $('#bars-selector').val();	
+		 var changeVal = $(this).data('change-val'); 
+		 ALProgressBars.updateProgressBar(selectedBarId, changeVal);	
 	});
 });

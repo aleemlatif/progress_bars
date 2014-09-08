@@ -153,7 +153,7 @@ h1, h2, h3, h4, h5 {
 	top: 0;
 	width: 22px;
 }
-.module-body .row .ui-slider .ui-slider-handle {
+.module-body .row .ui-progressbar .ui-progressbar-handle {
 	background: url("../images/sprites.gif") no-repeat scroll 0 -26px transparent !important;
 	border: 0 none;
 	cursor: pointer;
@@ -267,22 +267,22 @@ h1, h2, h3, h4, h5 {
 .module-body .row .bars-container .control-panel button {
 	cursor:pointer;
 }
-.module-body .row .ui-slider .ui-slider-range {
+.module-body .row .ui-progressbar .ui-progressbar-range {
 	background: url("../images/bar_bg.gif") repeat-x scroll 0 0 transparent;
 	border-radius: 0;
 }
-.module-body .row .ui-slider .ui-slider-range.success {
-	background: url("../images/success_bar_bg.gif") repeat-x scroll 0 0 transparent!important;
+.module-body .row .ui-progressbar .ui-progressbar-value.success {
+	background: url("../images/success_bar_bg.gif") repeat scroll 0 0 transparent!important;
 	border-radius: 0;
 }
-.module-body .row .ui-slider .ui-slider-handle {
+.module-body .row .ui-progressbar .ui-progressbar-handle {
 	background: url("../images/sprites.gif") no-repeat scroll 0 -26px transparent!important;
 	top: 0.5em;
 	border: none;
 	cursor:pointer;
 	outline: none;
 }
-.module-body .row .ui-slider .ui-slider-handle:focus {
+.module-body .row .ui-progressbar .ui-progressbar-handle:focus {
 	outline: none;
 }
 /******************
