@@ -111,8 +111,7 @@ var ALProgressBars = {
 	 	update selected progress bar "value" with clicked button value
 	*/
 	updateVal : function(progressBar, operator, currVal, changeVal)	{
-		
-		if (currVal < 100)	{
+				
 			switch (operator)	{
 				case "-":	{
 					 progressBar.progressbar( "value", currVal - changeVal );
@@ -122,8 +121,7 @@ var ALProgressBars = {
 					 progressBar.progressbar( "value", currVal + changeVal );
 					 break;
 					}
-			}
-		} 
+			}	
 	}
 }
 // end : ALProgressBar object
