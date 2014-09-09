@@ -9,14 +9,17 @@ var ALProgressBars = {
 	//	Set the default values
     options	 : { 	
 		startVal: 0,
-        finishVal: 100		
+        maxVal: 100,
+		currVal_1 : 20,	
+		currVal_2 : 40,
+		currVal_3 : 60
 	},
 	
 	init : function (start, finish)	{
 		
 		// 	Facilitate overriding of default values of the object    
          ALProgressBars.options.startVal = (start)? start : ALProgressBars.options.startVal;		
-		 ALProgressBars.options.finishVal = (finish)? finish : ALProgressBars.options.finishVal;
+		 ALProgressBars.options.maxVal = (finish)? finish : ALProgressBars.options.maxVal;
 		 
 		 // Initialize progress bars	 
 		 ALProgressBars.initProgressBars();	
@@ -35,29 +38,25 @@ var ALProgressBars = {
 			  obj =  $( this );			
 								
 				obj.progressbar({
-				  value: o.startVal,
-				  max: o.finishVal,
-				  
-				  create : function( event, ui )	{
-										
-					var val = obj.progressbar( "option", "value" );
 					
-					obj.find('.ui-progressbar-value').removeClass('success');									
-					obj.progressbar("value", obj.data('init-val'));			
-							
+				  value: o.startVal,				  
+				  max: o.maxVal,
+				  
+				  create : function( event, ui )	{										
+						var val = obj.progressbar( "option", "value" );					
+						obj.find('.ui-progressbar-value').removeClass('success');									
+						obj.progressbar("value", obj.data('init-val'));								
 				  },
 				  
+				  change : function( event, ui )	{					
+						var progressLabel =obj.find( ".progress-label" );					
+						progressLabel.text( obj.progressbar( "value" ) + "%" ); 					 
+				  },
+				  				  
 				  complete : function( event, ui )	{
-					 obj.find('.ui-progressbar-value').addClass('success');				  
-				  },
+					 	obj.find('.ui-progressbar-value').addClass('success');				  
+				  }			  
 				  
-				  change : function( event, ui )	{
-					
-					var progressLabel =obj.find( ".progress-label" );
-					
-					progressLabel.text( obj.progressbar( "value" ) + "%" ); 
-					 
-				  }
 				});
 			});			
 	}, 
@@ -92,12 +91,11 @@ var ALProgressBars = {
 					  	}
 						
 				  },
-				  
+				  				  
 				  complete: function() {
-					 
-					 ALProgressBars.updateVal(progressBar, operator, currVal, changeVal);
-					 
+					 					 
 					 progressLabel.text( progressBar.progressbar( "value" ) + "%" ); 
+					 
 					 updatedVal = progressBar.progressbar( "value" );
 					 
 					  if (updatedVal >= 100)	{					  	
@@ -105,8 +103,7 @@ var ALProgressBars = {
 						 
 					  } else {
 					  	progressBar.find('.ui-progressbar-value').removeClass('success');
-					  }
-					   
+					  }					   
 				  }
 		   });
 	},
@@ -115,16 +112,18 @@ var ALProgressBars = {
 	*/
 	updateVal : function(progressBar, operator, currVal, changeVal)	{
 		
-		switch (operator)	{
-			case "-":	{
-				 progressBar.progressbar( "value", currVal - changeVal );
-				 break;
-				 }
-			case "+":	{
-				 progressBar.progressbar( "value", currVal + changeVal );
-				 break;
-				}
-		}			
+		if (currVal < 100)	{
+			switch (operator)	{
+				case "-":	{
+					 progressBar.progressbar( "value", currVal - changeVal );
+					 break;
+					 }
+				case "+":	{
+					 progressBar.progressbar( "value", currVal + changeVal );
+					 break;
+					}
+			}
+		} 
 	}
 }
 // end : ALProgressBar object
@@ -139,7 +138,8 @@ jQuery(function($) {
 		  title: 'Progress Bars Demo',
 		  modal: true,
 		  minWidth: 400,
-		  minHeight: 210,		
+		  minHeight: 210,	
+		  resizable: false,	
 		  create: function( event, ui ) {
 			// Set maxWidth
 			$(this).css("maxWidth", "600px");

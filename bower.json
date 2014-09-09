@@ -1,0 +1,31 @@
+{
+  "name": "ProgressBars",
+  "version": "0.0.1",
+  "authors": [
+    "Aleem Latif <aleemlatif@hotmail.com>"
+  ],
+  "description": "This is a test project for Progress Bars - Coding Test",
+  "keywords": [
+    "Progress",
+    "Bars",
+    "Website",
+    "Coding",
+    "Test"    
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",   
+    "tests"
+  ],
+  "directory": "bower_components",
+  "dependencies": {
+    "jquery": "~1.11",
+    "jquery-ui": "~1.11.0",
+	"modernizr": "~2.8.3",
+	"requirejs": "~2.1.14",
+    "requirejs-domready": "~2.0.1"  
+  }
+}
