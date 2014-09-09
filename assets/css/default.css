@@ -304,6 +304,7 @@ h1, h2, h3, h4, h5 {
 	font-size: 0.8em;
 }
 
+
 /** 
 	Responsoive Logic 
 */
@@ -312,19 +313,23 @@ h1, h2, h3, h4, h5 {
 	Size > 1024px Desktop/Widescreens
 */
 @media screen and (min-width: 1025px) {
+
 }
 
 /***************************************
 	Size ~ 601px - 1024px Tablet/Desktop
 */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
+	min-width: 300px!important;
+	max-width: 400px!important;
 }
 
 /*************************************
 	Size ~ 0 - 600px [mobile devices]
 */
-@media only screen and (min-width:0px) and (max-width: 600px) {
- .ui-dialog {
- min-width: 300px!important;
-}
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+  .ui-dialog {
+    min-width: 250px!important;
+	max-width: 90%!important;
+  }
 }
