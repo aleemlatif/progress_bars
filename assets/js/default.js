@@ -73,15 +73,17 @@ var ALProgressBars = {
 			var updatedVal = '';
 			
 			// now update the selected progressBar value
-			 ALProgressBars.updateVal(progressBar, operator, currVal, changeVal);
-			 updatedVal = progressBar.progressbar( "value" );		
-			 	  
+			ALProgressBars.updateVal(progressBar, operator, currVal, changeVal);
+			
+			progressLabel.text( progressBar.progressbar( "value" ) + "%" );	
+		 		 	  
 			progressBar.progressbar({
 				  				  
 				  change: function() {
-					    
-					  
+					    					  
 						progressLabel.text( progressBar.progressbar( "value" ) + "%" );
+						
+						updatedVal = progressBar.progressbar( "value" );
 						
 						if (updatedVal < 100)	{					  	
 							progressBar.find('.ui-progressbar-value').removeClass('success');						 
@@ -93,12 +95,18 @@ var ALProgressBars = {
 				  
 				  complete: function() {
 					 
+					 ALProgressBars.updateVal(progressBar, operator, currVal, changeVal);
+					 
+					 progressLabel.text( progressBar.progressbar( "value" ) + "%" ); 
+					 updatedVal = progressBar.progressbar( "value" );
+					 
 					  if (updatedVal >= 100)	{					  	
 						progressBar.find('.ui-progressbar-value').addClass('success');
 						 
 					  } else {
 					  	progressBar.find('.ui-progressbar-value').removeClass('success');
 					  }
+					   
 				  }
 		   });
 	},
@@ -116,7 +124,7 @@ var ALProgressBars = {
 				 progressBar.progressbar( "value", currVal + changeVal );
 				 break;
 				}
-		}		
+		}			
 	}
 }
 // end : ALProgressBar object
